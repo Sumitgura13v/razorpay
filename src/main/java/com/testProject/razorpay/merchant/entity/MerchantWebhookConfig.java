@@ -9,11 +9,17 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "merchant_webhook_config")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class MerchantWebhookConfig {
 
     @Id

@@ -3,11 +3,17 @@ package com.testProject.razorpay.merchant.entity;
 import com.testProject.razorpay.common.enums.BusinessType;
 import com.testProject.razorpay.common.enums.MerchantStatus;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @Table(name="merchant")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Merchant {
 
     @Id
@@ -23,8 +29,8 @@ public class Merchant {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, length = 20)
-    private String contantNumber;
+    @Column(length = 20)
+    private String contactNumber;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 100)
@@ -32,7 +38,7 @@ public class Merchant {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 100)
-    private MerchantStatus Status = MerchantStatus.PENDING_kyc;
+    private MerchantStatus status = MerchantStatus.PENDING_kyc;
 
     @Column(length = 20)
     private String gst_id;
